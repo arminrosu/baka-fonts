@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Gang of Three';
+    src: url('../fonts/gang-of-three/go3v2-webfont.woff2') format('woff2'),
+         url('../fonts/gang-of-three/go3v2-webfont.woff') format('woff'),
+         url('../fonts/gang-of-three/go3v2-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.ja {
+    font-family: "\30E1 \30A4 \30EA \30AA ","Meiryo","\30D2 \30E9 \30AE \30CE \89D2 \30B4  Pro W3","Hiragino Kaku Gothic Pro W3","Osaka","\FF2D \FF33  \FF30 \30B4 \30B7 \30C3 \30AF ","MS PGothic", "Malgun Gothic", "Microsoft YaHei", sans-serif !important;
+}
+
+.cali {
+    font-family: "Brush Script MT",cursive !important;
+}
+
+
+body {
+  background: #c00;
+  background-color: #c00;
+}
+
+section[data-background="#fff"] {
+    color: #000;
+}
+
+.reveal h1.title {
+    color: black;
+    font-family: 'Gang of Three';
+}
+
+.reveal .progress span {
+    background: white;
+}
+
+.reveal .controls .navigate-left, .reveal .controls .navigate-left.enabled {
+    border-right-color: #fff;
+}
+
+.reveal .controls .navigate-top, .reveal .controls .navigate-right.enabled {
+    border-left-color: #fff;
+}
+
+.reveal .controls .navigate-bottom, .reveal .controls .navigate-right.enabled {
+    border-left-color: #fff;
+}
+
+.reveal .controls .navigate-right, .reveal .controls .navigate-right.enabled {
+    border-left-color: #fff;
+}
+
+.reveal pre {
+    box-shadow: none;
+}

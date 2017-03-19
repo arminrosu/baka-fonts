@@ -1,0 +1,271 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Baka Fonts</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/black.css">
+    <link rel="stylesheet" href="css/baka.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="css/zenburn.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 class="title">Baka Fonts</h1>
+          <p class="fragment">Fonts for all Languages</p>
+        </section>
+        <section>
+          <h1>Armin Roșu</h1>
+
+          <ul>
+            <li>Frontender @ Adobe</li>
+            <li>https://armin.ro</li>
+          </ul>
+
+          <aside class="notes">One of the projects I'm working on is SuSi, the Adobe Login.</aside>
+        </section>
+
+        <section data-background="#fff">
+          <h1>I ❤️ Helvetica</h1>
+          <p class="fragment">(Or <a href="http://www.timesnewroman.ro/">Times New Roman</a>)</p>
+        </section>
+
+        <section>
+          <h1>Default Fonts</h1>
+          <ul>
+            <li>everybody already has them</li>
+            <li class="fragment">no need to download them</li>
+            <li class="fragment">no FOUT</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>System Fonts</h1>
+
+          <p class="fragment">Fonts used in the OS UI.</p>
+
+          <p class="fragment">Consistent UX.</p>
+        </section>
+
+        <section>
+          <pre>
+          <code class="hljs css"  data-trim>
+font-family:
+  /* Mac, Chrome on Mac */
+  -apple-system, BlinkMacSystemFont,
+  /* Windows 7+, Windows Phone (lol) */
+  "Segoe UI",
+  /* Android */
+  "Roboto",
+  /* Android < 4 */
+  "Droid Sans",
+  /* KDE */
+  "Oxygen",
+  /* Brown Linux */
+  "Ubuntu",
+  /* Gnome */
+  "Cantarell",
+  /* Firefox OS (RIP) */
+  "Fira Sans",
+  /* Mac Fallback */
+  "Helvetica Neue",
+  /* Fallback */
+  sans-serif;
+          </code>
+        </pre>
+        </section>
+
+        <section>
+          <h1>Guess who does this?</h1>
+        </section>
+
+        <section data-background="images/fb_normal.png" data-background-transition="none"></section>
+
+        <section>
+          <h1>Designers are Fancy</h1>
+
+          <p class="fragment">(too fancy for default fonts)</p>
+
+          <aside class="notes">
+            Custom fonts, self-designed. BUT, companies want consistent branding, so they design their own custom fonts and I have to use `@font-face` :(
+
+            In reality, they just change a few characters from Helvetica / Futura :p
+          </aside>
+        </section>
+
+        <section>
+          <h1>So is Adobe</h1>
+
+          <ul>
+            <li>major font foundry (remember Adobe Fontfolio?!)</li>
+            <li>and font distributor (Typekit)</li>
+            <li>uses <em>Adobe Clean™</em></li>
+          </ul>
+
+          <aside class="notes">Mail from Yoko</aside>
+        </section>
+
+        <section>
+          <h1><span class="ja">グ</span> vs. <span>グ</span></h1>
+
+          <p class="fragment">like</p>
+
+          <h1 class="fragment"><span class="cali">a</span> vs. <span>a</span></h1>
+
+          <aside class="notes">or so I am told</aside>
+        </section>
+
+        <section>
+          <h1 class="title">Enter the CJK</h1>
+          <p class="fragment">CJK = Chinese, Japanese & Korean</p>
+        </section>
+
+        <section>
+          <h1>Unicode</h1>
+          <ul>
+            <li>ASCII (i.e. English): 128</li>
+            <li class="fragment">Latin Extended (including Romanian): 256</li>
+            <li class="fragment">CJK: 80,388 Unicode characters, many more possible</li>
+          </ul>
+
+          <aside class="notes">protip: CJK includes latin character, font have different width</aside>
+        </section>
+
+        <section>
+          <h1>Adobe Clean</h1>
+
+            <p>Support across CJK and latin extended. Yey!</p>
+            <p class="fragment">Alternatives: Source Han Sans, Noto Sans</p>
+
+          <aside class="notes">Wanna load all 80k characters? Noto Sans Jap has 110 MB</aside>
+        </section>
+
+        <section>
+          <h1 class="title">Typekit to the Rescue</h1>
+        </section>
+
+        <section>
+          <h1>Typekit Dynamic Kits</h1>
+          <p class="fragment">Load only characters used on a page. (remember this)</p>
+        </section>
+
+        <section>
+          <h1>Font file size comparison</h1>
+
+          <p>... on Adobe Login Page</p>
+
+          <ul>
+            <li>Latin: 90 kB</li>
+            <li class="fragment">Latin Extended: <em>230kB</em></li>
+            <li class="fragment">Chinese: 230kB</li>
+            <li class="fragment">Japanese: 150kB</li>
+            <li class="fragment">Korean: 120kB</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>CJK < Latin Extended</h1>
+
+          <p class="fragment">Because CJK don't have all characters, only those used on the page.</p>
+        </section>
+
+        <section>
+          <h1>Keep in mind</h1>
+
+          <ul>
+            <li>Use static kits for Latin, Latin Extended (small enough, no parsing)</li>
+            <li class="fragment">Typekit Static Kits loads <em>all the fonts</em> in a kit (latin, extended, CJK), even if not used.</li>
+            <li class="fragment">Make locale based kits and include them conditionally.</li>
+            <li class="fragment">Typekit loads after the page => FOUT.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1 class="title">Kung FOUT Fighting</h1>
+
+          <p>* FOUT = Flash of unstyled Text</p>
+
+          <aside class="notes">Dad joke, not a dad, yet, I hope, maybe.</aside>
+        </section>
+
+        <section>
+          <h1>Font Load Events</h1>
+
+          <ul>
+            <li>via JS API</li>
+            <li class="fragment">WebFontLoader.js for non-Typekit</li>
+            <li class="fragment">CSS classes on html element</li>
+          </ul>
+
+          <aside class="notes">What can we do with that?</aside>
+        </section>
+
+        <section data-background="images/nyancat.gif">
+          <h1 class="fragment">Loading Screen</h1>
+        </section>
+
+        <section>
+          <h1>Fabulous Font  Fallback Fonts</h1>
+
+          <ul>
+            <li>check your analytics for OS usage</li>
+            <li class="fragment">http://www.cssfontstack.com/</li>
+            <li class="fragment">test using http://ffffallback.com/</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1 class="title">Reference</h1>
+
+          <ul>
+            <li>https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/</li>
+            <li>https://css-tricks.com/snippets/css/system-font-stack/</li>
+            <li>https://blog.typekit.com/2014/07/15/introducing-source-han-sans/</li>
+            <li>https://helpx.adobe.com/typekit/using/font-events.html</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1 class="title">Further Reading</h2>
+
+          <ul>
+            <li>http://iamvdo.me/en/blog/css-font-metrics-line-height-and-vertical-align</li>
+            <li>https://practice.typekit.com/lesson/caring-about-opentype-features/</li>
+            <li>https://css-tricks.com/fout-foit-foft/</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          {
+            src: 'plugin/notes/notes.js',
+            async: true
+          },
+          {
+            src: 'plugin/highlight/highlight.js',
+            async: true,
+            callback: function() {
+            hljs.initHighlightingOnLoad();
+            }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
